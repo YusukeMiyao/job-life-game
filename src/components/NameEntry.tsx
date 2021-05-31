@@ -1,9 +1,11 @@
-import React, { useReducer } from "react";
+// import React from "react";
 import styled from "styled-components";
 import { useAllContext } from "./Context";
+// import { withRouter } from "react-router-dom";
 
 const NameEntry = () => {
   const context = useAllContext();
+  console.log(context);
   const dispatch = context.dispatch;
   return (
     <Wrapper>
@@ -36,7 +38,7 @@ const NameEntry = () => {
           }
         />
       </NameWrapper>
-      <SubmitButton onSubmit={context.onSubmit}>決定</SubmitButton>
+      <SubmitButton onClick={context.onSubmit}>決定</SubmitButton>
     </Wrapper>
   );
 };
