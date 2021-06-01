@@ -1,36 +1,35 @@
 // import { useAllContext } from "../Context";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react"
+// import { useAllContext } from "../Context"
 
-export const DataReducer = (state: State, action: Action) => {
-  const [fetchData, setFetchData] = useState([]);
-  useEffect(() => {
-    fetch(
-      "https://script.google.com/macros/s/AKfycbwciWzBsp-ilIUz6IUngpjMhAqzzi-TQlPRxVX-WWslhA-embNjEMjUq_7G5Yv41Hog/exec"
-    )
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.log(responseJson, fetchData);
-        setFetchData(responseJson);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+export const DataReducer = (
+  state: State<{
+    jobPt: number
+    money: number
+    lovePt: number
+    friendPt: number
+    hobbyPt: number
+    position: string
+  }>,
+  action: Action
+) => {
+  // const context = useAllContext()
+  const fetchData = action.fetchData
 
-  const stateUser1 = state.user1;
-  const stateUser2 = state.user2;
-  const stateUser3 = state.user3;
-  const stateUser4 = state.user4;
-  const inputedNumber: number = Number(action.payload);
+  const stateUser1 = state.user1
+  const stateUser2 = state.user2
+  const stateUser3 = state.user3
+  const stateUser4 = state.user4
+  const inputedNumber: number = Number(action.inputedNum)
 
   switch (action.type) {
     case "user1":
-      console.log(state);
+      console.log(action.inputedNum)
       return {
         ...state,
         user1: {
-          JobPt: (stateUser1.jobPt += fetchData[inputedNumber][1]),
-          Money: (stateUser1.money += fetchData[inputedNumber][2]),
+          jobPt: (stateUser1.jobPt += fetchData[inputedNumber][1]),
+          money: (stateUser1.money += fetchData[inputedNumber][2]),
           lovePt: (stateUser1.lovePt += fetchData[inputedNumber][3]),
           friendPt: (stateUser1.friendPt += fetchData[inputedNumber][4]),
           hobbyPt: (stateUser1.hobbyPt += fetchData[inputedNumber][5]),
@@ -39,13 +38,13 @@ export const DataReducer = (state: State, action: Action) => {
               ? stateUser1.position
               : fetchData[inputedNumber][6]),
         },
-      };
+      }
     case "user2":
       return {
         ...state,
         user2: {
-          JobPt: (stateUser2.jobPt += fetchData[inputedNumber][1]),
-          Money: (stateUser2.money += fetchData[inputedNumber][2]),
+          jobPt: (stateUser2.jobPt += fetchData[inputedNumber][1]),
+          money: (stateUser2.money += fetchData[inputedNumber][2]),
           lovePt: (stateUser2.lovePt += fetchData[inputedNumber][3]),
           friendPt: (stateUser2.friendPt += fetchData[inputedNumber][4]),
           hobbyPt: (stateUser2.hobbyPt += fetchData[inputedNumber][5]),
@@ -54,13 +53,13 @@ export const DataReducer = (state: State, action: Action) => {
               ? stateUser2.position
               : fetchData[inputedNumber][6]),
         },
-      };
+      }
     case "user3":
       return {
         ...state,
         user3: {
-          JobPt: (stateUser3.jobPt += fetchData[inputedNumber][1]),
-          Money: (stateUser3.money += fetchData[inputedNumber][2]),
+          jobPt: (stateUser3.jobPt += fetchData[inputedNumber][1]),
+          money: (stateUser3.money += fetchData[inputedNumber][2]),
           lovePt: (stateUser3.lovePt += fetchData[inputedNumber][3]),
           friendPt: (stateUser3.friendPt += fetchData[inputedNumber][4]),
           hobbyPt: (stateUser3.hobbyPt += fetchData[inputedNumber][5]),
@@ -69,13 +68,13 @@ export const DataReducer = (state: State, action: Action) => {
               ? stateUser3.position
               : fetchData[inputedNumber][6]),
         },
-      };
+      }
     case "user4":
       return {
         ...state,
         user4: {
-          JobPt: (stateUser4.jobPt += fetchData[inputedNumber][1]),
-          Money: (stateUser4.money += fetchData[inputedNumber][2]),
+          jobPt: (stateUser4.jobPt += fetchData[inputedNumber][1]),
+          money: (stateUser4.money += fetchData[inputedNumber][2]),
           lovePt: (stateUser4.lovePt += fetchData[inputedNumber][3]),
           friendPt: (stateUser4.friendPt += fetchData[inputedNumber][4]),
           hobbyPt: (stateUser4.hobbyPt += fetchData[inputedNumber][5]),
@@ -84,48 +83,44 @@ export const DataReducer = (state: State, action: Action) => {
               ? stateUser4.position
               : fetchData[inputedNumber][6]),
         },
-      };
+      }
     default:
-      throw new Error("userNameReducerでエラー発生");
+      throw new Error()
   }
-};
+}
 
-type State = {
-  user1: {
-    jobPt: number;
-    money: number;
-    lovePt: number;
-    friendPt: number;
-    hobbyPt: number;
-    position: string;
-  };
-  user2: {
-    jobPt: number;
-    money: number;
-    lovePt: number;
-    friendPt: number;
-    hobbyPt: number;
-    position: string;
-  };
-  user3: {
-    jobPt: number;
-    money: number;
-    lovePt: number;
-    friendPt: number;
-    hobbyPt: number;
-    position: string;
-  };
-  user4: {
-    jobPt: number;
-    money: number;
-    lovePt: number;
-    friendPt: number;
-    hobbyPt: number;
-    position: string;
-  };
-};
+export type State<T> = {
+  user1: T
+  user2: T
+  user3: T
+  user4: T
+}
 
-type Action = {
-  type: "user1" | "user2" | "user3" | "user4";
-  payload: string;
-};
+// type inputedState = {
+//   user1Inputed: number;
+//   user2Inputed: number;
+//   user3Inputed: number;
+//   user4Inputed: number;
+// };
+
+export type Action = {
+  type: "user1" | "user2" | "user3" | "user4"
+  fetchData: any
+  inputedNum: number
+}
+
+// export const DataInputReducer = (
+//   state: State<number>,
+//   action: Action<number>
+// ) => {
+//   switch (action.type) {
+//     case "user1":
+//       return { user1: action.payload }
+//     case "user2":
+//       return { user2: action.payload }
+//     case "user3":
+//       return { user3: action.payload }
+//     case "user4":
+//       return { user4: action.payload }
+//   }
+// }
