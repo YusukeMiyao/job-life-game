@@ -17,6 +17,7 @@ const NameEntry = () => {
           }
           value={context.userName1}
         />
+
         <NameRegistration>ユーザー２の登録名</NameRegistration>
         <NameInput
           onChange={(e) =>

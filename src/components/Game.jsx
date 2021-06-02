@@ -16,6 +16,7 @@ const Game = () => {
       <Wrapper>
         <UserWrapper>
           <UserName>{context.userName1}</UserName>
+          <Point>業界/職種:</Point>
           <Point>仕事pt:{user1.jobPt}</Point>
           <Point>資産:{user1.money}</Point>
           <Point>恋愛/家族:{user1.lovePt}</Point>
@@ -45,6 +46,7 @@ const Game = () => {
         </UserWrapper>
         <UserWrapper>
           <UserName>{context.userName2}</UserName>
+          <Point>業界/職種:</Point>
           <Point>仕事pt:{user2.jobPt}</Point>
           <Point>資産:{user2.money}</Point>
           <Point>恋愛/家族:{user2.lovePt}</Point>
@@ -76,6 +78,7 @@ const Game = () => {
       <Wrapper>
         <UserWrapper>
           <UserName>{context.userName3}</UserName>
+          <Point>業界/職種:</Point>
           <Point>仕事pt:{user3.jobPt}</Point>
           <Point>資産:{user3.money}</Point>
           <Point>恋愛/家族:{user3.lovePt}</Point>
@@ -105,6 +108,7 @@ const Game = () => {
         </UserWrapper>
         <UserWrapper>
           <UserName>{context.userName4}</UserName>
+          <Point>業界/職種:</Point>
           <Point>仕事pt:{user4.jobPt}</Point>
           <Point>資産:{user4.money}</Point>
           <Point>恋愛/家族:{user4.lovePt}</Point>
