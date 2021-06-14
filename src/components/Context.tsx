@@ -56,11 +56,11 @@ const InitialDataState = {
   },
 }
 
-const initialInputedState = {
-  user1Inputed: 0,
-  user2Inputed: 0,
-  user3Inputed: 0,
-  user4Inputed: 0,
+export const initialInputedState = {
+  user1Inputed: "",
+  user2Inputed: "",
+  user3Inputed: "",
+  user4Inputed: "",
 }
 
 export const AllContextProveider: React.FC = ({ children }) => {
@@ -76,7 +76,7 @@ export const AllContextProveider: React.FC = ({ children }) => {
   const [fetchData, setFetchData] = useState([])
   useEffect(() => {
     fetch(
-      "https://script.google.com/macros/s/AKfycbwciWzBsp-ilIUz6IUngpjMhAqzzi-TQlPRxVX-WWslhA-embNjEMjUq_7G5Yv41Hog/exec"
+      "https://script.google.com/macros/s/AKfycbzotiTjhxYNzf-1ag-dafyyYqzwhmiJlxDqf-aqIkqsqHwi3ERyVHUs51J1BxqGfO1R/exec"
     )
       .then((response) => response.json())
       .then((responseJson) => {
@@ -97,6 +97,10 @@ export const AllContextProveider: React.FC = ({ children }) => {
     handleLink("/game")
   }
 
+  const onClickGameEnd = () => {
+    handleLink("/awards")
+  }
+
   const value = {
     ...userNameState,
     userNameDispatch,
@@ -106,6 +110,7 @@ export const AllContextProveider: React.FC = ({ children }) => {
     ...inputedState,
     inputedDispatch,
     onSubmit,
+    onClickGameEnd,
   }
   return <AllContext.Provider value={value}>{children}</AllContext.Provider>
 }

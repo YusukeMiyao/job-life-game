@@ -13,6 +13,9 @@ export const DataReducer = (
   }>,
   action: Action
 ) => {
+  {
+    console.log(state)
+  }
   // const context = useAllContext()
   const fetchData = action.fetchData
 
@@ -24,15 +27,15 @@ export const DataReducer = (
 
   switch (action.type) {
     case "user1":
-      console.log(action.inputedNum)
       return {
         ...state,
+
         user1: {
-          jobPt: (stateUser1.jobPt += fetchData[inputedNumber][1]),
-          money: (stateUser1.money += fetchData[inputedNumber][2]),
-          lovePt: (stateUser1.lovePt += fetchData[inputedNumber][3]),
-          friendPt: (stateUser1.friendPt += fetchData[inputedNumber][4]),
-          hobbyPt: (stateUser1.hobbyPt += fetchData[inputedNumber][5]),
+          jobPt: (state.user1.jobPt += fetchData[inputedNumber][1] / 2),
+          money: (stateUser1.money += fetchData[inputedNumber][2] / 2),
+          lovePt: (stateUser1.lovePt += fetchData[inputedNumber][3] / 2),
+          friendPt: (stateUser1.friendPt += fetchData[inputedNumber][4] / 2),
+          hobbyPt: (stateUser1.hobbyPt += fetchData[inputedNumber][5] / 2),
           position: (stateUser1.position =
             fetchData[inputedNumber][6] === undefined
               ? stateUser1.position
@@ -43,11 +46,11 @@ export const DataReducer = (
       return {
         ...state,
         user2: {
-          jobPt: (stateUser2.jobPt += fetchData[inputedNumber][1]),
-          money: (stateUser2.money += fetchData[inputedNumber][2]),
-          lovePt: (stateUser2.lovePt += fetchData[inputedNumber][3]),
-          friendPt: (stateUser2.friendPt += fetchData[inputedNumber][4]),
-          hobbyPt: (stateUser2.hobbyPt += fetchData[inputedNumber][5]),
+          jobPt: (stateUser2.jobPt += fetchData[inputedNumber][1] / 2),
+          money: (stateUser2.money += fetchData[inputedNumber][2] / 2),
+          lovePt: (stateUser2.lovePt += fetchData[inputedNumber][3] / 2),
+          friendPt: (stateUser2.friendPt += fetchData[inputedNumber][4] / 2),
+          hobbyPt: (stateUser2.hobbyPt += fetchData[inputedNumber][5] / 2),
           position: (stateUser2.position =
             fetchData[inputedNumber][6] === undefined
               ? stateUser2.position
@@ -58,11 +61,11 @@ export const DataReducer = (
       return {
         ...state,
         user3: {
-          jobPt: (stateUser3.jobPt += fetchData[inputedNumber][1]),
-          money: (stateUser3.money += fetchData[inputedNumber][2]),
-          lovePt: (stateUser3.lovePt += fetchData[inputedNumber][3]),
-          friendPt: (stateUser3.friendPt += fetchData[inputedNumber][4]),
-          hobbyPt: (stateUser3.hobbyPt += fetchData[inputedNumber][5]),
+          jobPt: (stateUser3.jobPt += fetchData[inputedNumber][1] / 2),
+          money: (stateUser3.money += fetchData[inputedNumber][2] / 2),
+          lovePt: (stateUser3.lovePt += fetchData[inputedNumber][3] / 2),
+          friendPt: (stateUser3.friendPt += fetchData[inputedNumber][4] / 2),
+          hobbyPt: (stateUser3.hobbyPt += fetchData[inputedNumber][5] / 2),
           position: (stateUser3.position =
             fetchData[inputedNumber][6] === undefined
               ? stateUser3.position
@@ -73,11 +76,11 @@ export const DataReducer = (
       return {
         ...state,
         user4: {
-          jobPt: (stateUser4.jobPt += fetchData[inputedNumber][1]),
-          money: (stateUser4.money += fetchData[inputedNumber][2]),
-          lovePt: (stateUser4.lovePt += fetchData[inputedNumber][3]),
-          friendPt: (stateUser4.friendPt += fetchData[inputedNumber][4]),
-          hobbyPt: (stateUser4.hobbyPt += fetchData[inputedNumber][5]),
+          jobPt: (stateUser4.jobPt += fetchData[inputedNumber][1] / 2),
+          money: (stateUser4.money += fetchData[inputedNumber][2] / 2),
+          lovePt: (stateUser4.lovePt += fetchData[inputedNumber][3] / 2),
+          friendPt: (stateUser4.friendPt += fetchData[inputedNumber][4]) / 2,
+          hobbyPt: (stateUser4.hobbyPt += fetchData[inputedNumber][5] / 2),
           position: (stateUser4.position =
             fetchData[inputedNumber][6] === undefined
               ? stateUser4.position

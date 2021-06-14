@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useAllContext } from "./Context"
 import styled from "styled-components"
+import { initialInputedState } from "./Context"
 
 const Game = () => {
   const context = useAllContext()
@@ -33,13 +34,16 @@ const Game = () => {
             value={context.user1Inputed}
           />
           <FormButton
-            onClick={() =>
+            onClick={() => {
               dataDispatch({
                 type: "user1",
                 fetchData: context.fetchData,
                 inputedNum: context.user1Inputed,
               })
-            }
+              inputedDispatch({
+                type: "reset",
+              })
+            }}
           >
             更新
           </FormButton>
@@ -63,13 +67,16 @@ const Game = () => {
             value={context.user2Inputed}
           />
           <FormButton
-            onClick={() =>
+            onClick={() => {
               dataDispatch({
                 type: "user2",
                 fetchData: context.fetchData,
-                inputedNum: context.user1Inputed,
+                inputedNum: context.user2Inputed,
               })
-            }
+              inputedDispatch({
+                type: "reset",
+              })
+            }}
           >
             更新
           </FormButton>
@@ -95,13 +102,16 @@ const Game = () => {
             value={context.user3Inputed}
           />
           <FormButton
-            onClick={() =>
+            onClick={() => {
               dataDispatch({
                 type: "user3",
                 fetchData: context.fetchData,
-                inputedNum: context.user1Inputed,
+                inputedNum: context.user3Inputed,
               })
-            }
+              inputedDispatch({
+                type: "reset",
+              })
+            }}
           >
             更新
           </FormButton>
@@ -125,16 +135,20 @@ const Game = () => {
             value={context.user4Inputed}
           />
           <FormButton
-            onClick={() =>
+            onClick={() => {
               dataDispatch({
                 type: "user4",
                 fetchData: context.fetchData,
-                inputedNum: context.user1Inputed,
+                inputedNum: context.user4Inputed,
               })
-            }
+              inputedDispatch({
+                type: "reset",
+              })
+            }}
           >
             更新
           </FormButton>
+          <EndButton onClick={context.onClickGameEnd}>終了</EndButton>
         </UserWrapper>
       </Wrapper>
     </Container>
@@ -170,6 +184,11 @@ const FormButton = styled.button`
 const NumInput = styled.input`
   width: 48px;
   height: 21px;
+`
+
+const EndButton = styled.button`
+  width: 48px;
+  margin-left: 72px;
 `
 
 export default Game
